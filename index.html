@@ -1,71 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YungGhost902</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-<style>
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #0a0a0a;
-    color: white;
-    text-align: center;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YungGhost902</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-header {
-    padding: 80px 20px;
-}
+        /* Header Section */
+        header {
+            padding: clamp(60px, 10vh, 100px) 20px;
+            width: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(to bottom, #111, #0a0a0a);
+        }
 
-h1 {
-    font-size: 56px;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-}
+        h1 {
+            font-size: clamp(32px, 10vw, 64px); 
+            letter-spacing: 6px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
 
-p.tagline {
-    font-size: 18px;
-    opacity: 0.7;
-}
+        p.tagline {
+            font-size: clamp(14px, 4vw, 18px);
+            opacity: 0.7;
+            letter-spacing: 2px;
+            margin: 0;
+        }
 
-section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
-}
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+            box-sizing: border-box;
+        }
 
-h2 {
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
+        h2 {
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: clamp(20px, 5vw, 24px);
+        }
 
-.music iframe,
-.videos iframe {
-    width: 100%;
-    height: 315px;
-    margin-bottom: 20px;
-    border: none;
-}
+        /* Video Grid - Side-by-Side */
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
 
-.bio {
-    line-height: 1.7;
-    opacity: 0.85;
-}
+        .video-wrapper {
+            flex: 1;
+            min-width: 300px; 
+            position: relative;
+            padding-bottom: 28.125%; 
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-.socials a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
+        .featured-video {
+            padding-bottom: 56.25%; 
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-footer {
-    padding: 40px 20px;
-    opacity: 0.5;
-    font-size: 14px;
-}
-</style>
+        .video-grid iframe, 
+        .featured-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .bio p {
+            line-height: 1.8;
+            opacity: 0.85;
+            font-size: clamp(16px, 4vw, 18px);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* SOCIAL LINKS - STACKED UNDER HEADING
+        */
+        .socials {
+            display: flex;
+            flex-direction: column; /* This stacks them vertically */
+            align-items: center;    /* This centers them */
+            gap: 15px;              /* Space between each link */
+        }
+
+        .socials a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+
+        .socials a:hover {
+            opacity: 0.6;
+        }
+
+        footer {
+            padding: 60px 20px;
+            opacity: 0.4;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+            .video-wrapper {
+                padding-bottom: 56.25%; 
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -76,31 +137,40 @@ footer {
 
 <section class="music">
     <h2>Listen</h2>
-    <!-- Replace these with real embeds -->
-    <iframe src="https://www.youtube.com/embed/g0hqtmP5unc?si=56l44ZwmQcMDddz0"></iframe>
-    <iframe src="https://www.youtube.com/embed/rXQXhzAP9o8?si=6wr3i5lqyYJqrlnf"></iframe>
+    <div class="video-grid">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/g0hqtmP5unc?si=56l44ZwmQcMDddz0" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/rXQXhzAP9o8?si=6wr3i5lqyYJqrlnf" allowfullscreen></iframe>
+        </div>
+    </div>
 </section>
 
 <section class="bio">
     <h2>About</h2>
     <p>
-        YungGhost902 is an independent rap artist bringing raw energy and real stories out of Nova Scotia.
-        Blending gritty lyricism with modern production, his music reflects real life, ambition, and the grind.
+        YungGhost902 is an independent rap artist bringing raw energy and real stories out of Nova Scotia. 
+        Blending gritty lyricism with modern production, his music reflects real life, ambition, and the grind. 
         Every track is a piece of the journey.
     </p>
 </section>
 
 <section class="videos">
-    <h2>Videos</h2>
-    <!-- Replace with real videos -->
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
+    <h2>Featured Video</h2>
+    <div class="video-wrapper featured-video">
+        <iframe src="https://www.youtube.com/embed/TvicjPpd20E?si=YzAE_hjqwlfF1Z-f" allowfullscreen></iframe>
+    </div>
 </section>
 
-<section class="socials">
+<section>
     <h2>Connect</h2>
-    <a href="https://instagram.com/YOUR_LINK" target="_blank">Instagram</a>
-    <a href="https://youtube.com/YOUR_LINK" target="_blank">YouTube</a>
-    <a href="mailto:booking@email.com">Booking</a>
+    <div class="socials">
+        <a href="https://www.instagram.com/yungghost902/" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@yungghost902/featured" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@yungghost902" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61556772012271" target="_blank">Facebook</a>
+    </div>
 </section>
 
 <footer>
