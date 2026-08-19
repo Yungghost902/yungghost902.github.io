@@ -3,140 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YungGhost902</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0a;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        /* Header Section */
-        header {
-            padding: clamp(60px, 10vh, 100px) 20px;
-            width: 100%;
-            box-sizing: border-box;
-            background: linear-gradient(to bottom, #111, #0a0a0a);
-        }
-
-        h1 {
-            font-size: clamp(32px, 10vw, 64px); 
-            letter-spacing: 6px;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-        }
-
-        p.tagline {
-            font-size: clamp(14px, 4vw, 18px);
-            opacity: 0.7;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
-            box-sizing: border-box;
-        }
-
-        h2 {
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: clamp(20px, 5vw, 24px);
-        }
-
-        /* Video Grid - Side-by-Side */
-        .video-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .video-wrapper {
-            flex: 1;
-            min-width: 300px; 
-            position: relative;
-            padding-bottom: 28.125%; 
-            height: 0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .featured-video {
-            padding-bottom: 56.25%; 
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .video-grid iframe, 
-        .featured-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .bio p {
-            line-height: 1.8;
-            opacity: 0.85;
-            font-size: clamp(16px, 4vw, 18px);
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        /* SOCIAL LINKS - STACKED UNDER HEADING
-        */
-        .socials {
-            display: flex;
-            flex-direction: column; /* This stacks them vertically */
-            align-items: center;    /* This centers them */
-            gap: 15px;              /* Space between each link */
-        }
-
-        .socials a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: opacity 0.3s;
-            display: inline-block;
-        }
-
-        .socials a:hover {
-            opacity: 0.6;
-        }
-
-        footer {
-            padding: 60px 20px;
-            opacity: 0.4;
-            font-size: 12px;
-        }
-
-        @media (max-width: 650px) {
-            .video-wrapper {
-                padding-bottom: 56.25%; 
-            }
-        }
-    </style>
+    <title>Ghostfrmda902 | Official Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<nav>
+    <a href="index.html" class="brand">Ghostfrmda<span>902</span></a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="tracks.html" class="nav-btn">All Tracks &rarr;</a></li>
+    </ul>
+</nav>
+
 <header>
-    <h1>YungGhost902</h1>
-    <p class="tagline">Nova Scotia Rap Artist</p>
+    <div class="tag-pill">Nova Scotia Rap Artist</div>
+    <h1>Ghostfrmda902</h1>
+    <p class="tagline">Gritty lyricism meets modern production. Bringing raw energy and real stories out of the East Coast.</p>
+    <div class="hero-actions">
+        <a href="tracks.html" class="btn-primary">Explore All Tracks</a>
+        <a href="#featured" class="btn-secondary">Watch Video</a>
+    </div>
 </header>
 
-<section class="music">
-    <h2>Listen</h2>
+<section id="featured">
+    <div class="section-header">
+        <h2>Featured Release</h2>
+        <p class="section-sub">Latest visual drops and official music videos</p>
+    </div>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/TvicjPpd20E?si=YzAE_hjqwlfF1Z-f" allowfullscreen></iframe>
+    </div>
+</section>
+
+<section id="recent-music">
+    <div class="section-header">
+        <h2>Recent Drops</h2>
+        <p class="section-sub">Catch the newest tracks</p>
+    </div>
     <div class="video-grid">
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/g0hqtmP5unc?si=56l44ZwmQcMDddz0" allowfullscreen></iframe>
@@ -147,35 +56,35 @@
     </div>
 </section>
 
-<section class="bio">
-    <h2>About</h2>
-    <p>
-        YungGhost902 is an independent rap artist bringing raw energy and real stories out of Nova Scotia. 
-        Blending gritty lyricism with modern production, his music reflects real life, ambition, and the grind. 
-        Every track is a piece of the journey.
-    </p>
-</section>
-
-<section class="videos">
-    <h2>Featured Video</h2>
-    <div class="video-wrapper featured-video">
-        <iframe src="https://www.youtube.com/embed/TvicjPpd20E?si=YzAE_hjqwlfF1Z-f" allowfullscreen></iframe>
+<section id="about">
+    <div class="section-header">
+        <h2>The Story</h2>
+    </div>
+    <div class="bio-card">
+        Ghostfrmda902 is an independent rap artist bringing raw energy and real stories out of Nova Scotia. 
+        Blending gritty lyricism with modern production, his music reflects real life, ambition, and the daily grind. 
+        Every track is an unfiltered chapter of the journey.
     </div>
 </section>
 
-<section>
-    <h2>Connect</h2>
-    <div class="socials">
-        <a href="https://www.instagram.com/yungghost902/" target="_blank">Instagram</a>
-        <a href="https://www.youtube.com/@yungghost902/featured" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@yungghost902" target="_blank">TikTok</a>
-        <a href="https://www.facebook.com/profile.php?id=61556772012271" target="_blank">Facebook</a>
+<section id="connect">
+    <div class="section-header">
+        <h2>Connect & Follow</h2>
+        <p class="section-sub">Join the community on social media</p>
+    </div>
+    <div class="social-grid">
+        <a href="https://www.instagram.com/yungghost902/" target="_blank" class="social-card">Instagram</a>
+        <a href="https://www.youtube.com/@yungghost902/featured" target="_blank" class="social-card">YouTube</a>
+        <a href="https://www.tiktok.com/@yungghost902" target="_blank" class="social-card">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61556772012271" target="_blank" class="social-card">Facebook</a>
     </div>
 </section>
 
 <footer>
-    © 2026 YungGhost902. All rights reserved.
+    © 2026 Ghostfrmda902. All rights reserved.
 </footer>
 
+</body>
+</html>
 </body>
 </html>
