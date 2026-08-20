@@ -20,6 +20,8 @@ body {
     background-color: var(--bg-base);
     color: var(--text-main);
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
     background-image: 
         radial-gradient(circle at 50% 0%, rgba(35, 35, 241, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
@@ -91,6 +93,45 @@ nav {
 .nav-btn:hover {
     transform: scale(1.04);
     opacity: 0.9;
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.nav-toggle-label span {
+    position: relative;
+}
+
+.nav-toggle-label span::before {
+    position: absolute;
+    transform: translateY(-8px);
+}
+
+.nav-toggle-label span::after {
+    position: absolute;
+    transform: translateY(8px);
 }
 
 /* Hero Section */
@@ -216,7 +257,7 @@ h2 {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 24px;
 }
 
@@ -237,7 +278,7 @@ h2 {
 /* Social Grid */
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
     gap: 16px;
     max-width: 800px;
     margin: 0 auto;
@@ -373,11 +414,124 @@ footer {
     margin-top: 40px;
 }
 
+@media (max-width: 768px) {
+    nav {
+        padding: 14px 5%;
+    }
+
+    .nav-toggle-label {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 75%;
+        max-width: 300px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 60px 40px;
+        background: rgba(8, 8, 12, 0.97);
+        border-left: 1px solid var(--card-border);
+        transform: translateX(100%);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .nav-toggle:checked ~ .nav-links {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: translateY(0) rotate(-45deg);
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+
+    .nav-btn {
+        margin-top: 10px;
+    }
+}
+
 @media (max-width: 600px) {
+    header {
+        padding: 60px 16px 50px;
+    }
+
+    section {
+        padding: 50px 16px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .btn-primary, .btn-secondary {
+        text-align: center;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .bio-card {
+        padding: 28px 20px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-header {
+        padding: 50px 16px 30px;
+    }
+
+    .container {
+        padding: 0 16px 60px;
+    }
+
     .track-card {
         grid-template-columns: 1fr;
+        padding: 20px;
     }
+
     .track-actions {
         justify-content: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .track-info {
+        gap: 14px;
     }
 }
